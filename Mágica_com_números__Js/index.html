@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <link href="estilo.css" rel="stylesheet">
+        <title>Validação</title>
+    </head>
+    <header>
+        <h1>Mágica com Números</h1>
+        <br><br><br>
+    </header>
+    <body>
+        <h6>Pense em um número de 0 a 15 e depois marque as opções abaixo de acordo com o número que você está pensando</h6>
+        <br><br>
+        <form action="" method="get">
+
+            <div class="container text-center">
+                
+                <h4>O seu número está neste 1° bloco?</h4>
+                <table class="table table-bordered border-primary">
+                    <tbody>
+                        <tr>
+                            <td>9</td>
+                            <td>7</td>
+                            <td>15</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>5</td>
+                            <td>1</td>
+                            <td>13</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" name="btnradio_g1" id="btnradio1" autocomplete="off" checked value="1">
+                    <label class="btn btn-outline-primary" for="btnradio1">Sim</label>
+                  
+                    <input type="radio" class="btn-check" name="btnradio_g1" id="btnradio2" autocomplete="off" value="0">
+                    <label class="btn btn-outline-primary" for="btnradio2">Não</label>
+                </div>
+    
+                <br><br>
+    
+                <h4>O seu número está neste 2° bloco?</h4>
+    
+                <table class="table table-bordered border-primary">
+                    <tbody>
+                        <tr>
+                            <td>10</td>
+                            <td>13</td>
+                            <td>14</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>2</td>
+                            <td>6</td>
+                            <td>15</td>
+                        </tr>
+                    </tbody>
+                </table>
+    
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" name="btnradio_g2" id="btnradio3" autocomplete="off" checked value="2">
+                    <label class="btn btn-outline-primary" for="btnradio3">Sim</label>
+                  
+                    <input type="radio" class="btn-check" name="btnradio_g2" id="btnradio4" autocomplete="off" value="0">
+                    <label class="btn btn-outline-primary" for="btnradio4">Não</label>
+                </div>
+    
+                <br><br>
+    
+                <h4>O seu número está neste 3° bloco?</h4>
+    
+                <table class="table table-bordered border-primary">
+                    <tbody>
+                        <tr>
+                            <td>7</td>
+                            <td>15</td>
+                            <td>13</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td>4</td>
+                            <td>6</td>
+                            <td>14</td>
+                        </tr>
+                    </tbody>
+                </table>
+    
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" name="btnradio_g3" id="btnradio5" autocomplete="off" checked value="4">
+                    <label class="btn btn-outline-primary" for="btnradio5">Sim</label>
+                  
+                    <input type="radio" class="btn-check" name="btnradio_g3" id="btnradio6" autocomplete="off" value="0">
+                    <label class="btn btn-outline-primary" for="btnradio6">Não</label>
+                </div>
+    
+                <br><br>
+    
+                <h4>O seu número está neste 4° bloco?</h4>
+    
+                <table class="table table-bordered border-primary">
+                    <tbody>
+                        <tr>
+                            <td>9</td>
+                            <td>11</td>
+                            <td>15</td>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td>8</td>
+                            <td>10</td>
+                            <td>14</td>
+                        </tr>
+                    </tbody>
+                </table>
+    
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" name="btnradio_g4" id="btnradio7" autocomplete="off" checked value="8">
+                    <label class="btn btn-outline-primary" for="btnradio7">Sim</label>
+                  
+                    <input type="radio" class="btn-check" name="btnradio_g4" id="btnradio8" autocomplete="off" value="0">
+                    <label class="btn btn-outline-primary" for="btnradio8">Não</label>
+                </div>
+                
+                <br><br>
+    
+                <button type="button" class="btn btn-primary" onclick="magica()">Mágica</button>
+            </div>
+        </form>
+
+        <script>    
+            function magica() 
+            {
+                var x = [
+                parseInt(document.querySelector('input[name = "btnradio_g1"]:checked').value),
+                parseInt(document.querySelector('input[name = "btnradio_g2"]:checked').value),
+                parseInt(document.querySelector('input[name = "btnradio_g3"]:checked').value),
+                parseInt(document.querySelector('input[name = "btnradio_g4"]:checked').value)
+                ]
+
+                var soma = x.reduce(function(acumular, corrente) 
+                {
+                    if (!isNaN(corrente)) 
+                    {
+                        return acumular + corrente    
+                    }    
+                    else
+                    {
+                        return acumular
+                    }
+                }, 0)
+                alert("O número que você estava pensando é o: " + soma)
+            }
+        </script>
+    </body>
+</html>
